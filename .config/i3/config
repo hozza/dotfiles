@@ -125,7 +125,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+plus scratchpad show
 
 # Lock screen command
-bindsym $mod+l exec "pkill -u $USER -USR1 dunst && i3lock-fancy -g -t "" && pkill -u $USER -USR2 dunst"
+bindsym $mod+Shift+x exec "pkill -u $USER -USR1 dunst && i3lock-fancy && pkill -u $USER -USR2 dunst"
 
 
 # resize window (you can also use the mouse for that)
