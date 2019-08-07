@@ -1,0 +1,71 @@
+#####################################
+# Git Configs by hozza
+# Private info is outside dotfile repo
+#####################################
+[core]
+	editor = vim
+	whitespace = warn
+
+# this seeems to be the dotfile convention
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	pager = true
+	status = auto
+	ui = true
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+# https://github.com/csswizardry/dotfiles/blob/master/.gitconfig
+[alias]
+	ci = commit
+	com = commit
+	co = checkout
+	st = status
+	
+	# Sneak changes into your previous commit
+	sneak = commit -a --amend --no-edit
+	# Undo the last commit, but preserve the staging area
+	undo = reset --soft HEAD^
+	# It’s nice to be nice
+	praise = blame
+	who = blame
+
+	# See everything done recently
+	recap = log --oneline --no-merges
+	# Show very last commit
+	last = log --oneline -1
+	# See today’s work
+	today = log --since=\"00:00:00\" --all --no-merges --oneline
+
+	# See which commits are on your local branch that aren't on the remote
+	local = "! git log --oneline --no-merges origin/$(git rev-parse --abbrev-ref HEAD).."
+	# See which commits are on the remote that aren’t on your local branch
+	upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
+
+# Privates
+# use separate file for username, github token, etc.
+[include]
+	path = ~/.dotfiles_private/.gitconfig.local
+
+# now, go and commit something! :D

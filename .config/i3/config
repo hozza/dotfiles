@@ -1,0 +1,232 @@
+#####################################
+#
+#	hozza i3.conf
+#
+#####################################
+
+
+# Milti-monitor Setup
+# make command with `arandr`, save and copy the `xrandr` cmd output
+# AFTER run feh or it tiles wallpapers oddly on some setups
+exec xrandr --output DP-1 --off --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate left --output HDMI-1 --primary --mode 1920x1080 --pos 1080x384 --rotate normal && feh --bg-fill --randomize ~/Dropbox/Wallpapers/*
+
+
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+font pango:monospace 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+
+# Workspaces
+set $ws_long 	"1: long"
+
+set $ws_web 	"2: web"
+set $ws_code 	"3: code"
+set $ws_view 	"4: view"
+set $ws_misc5 	"5: misc"
+set $ws_misc6 	"6: misc"
+set $ws_misc7 	"7: misc"
+set $ws_m8s		"8: slack"
+set $ws_coms	"9: coms"
+set $ws_media 	"10:♬ media"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws_long
+bindsym $mod+2 workspace $ws_web
+bindsym $mod+3 workspace $ws_code
+bindsym $mod+4 workspace $ws_view
+bindsym $mod+5 workspace $ws_misc5
+bindsym $mod+6 workspace $ws_misc6
+bindsym $mod+7 workspace $ws_misc7
+bindsym $mod+8 workspace $ws_m8s
+bindsym $mod+9 workspace $ws_coms
+bindsym $mod+0 workspace $ws_media
+bindsym $mod+Tab workspace back_and_forth
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws_long
+bindsym $mod+Shift+2 move container to workspace $ws_web
+bindsym $mod+Shift+3 move container to workspace $ws_code
+bindsym $mod+Shift+4 move container to workspace $ws_view
+bindsym $mod+Shift+5 move container to workspace $ws_misc5
+bindsym $mod+Shift+6 move container to workspace $ws_misc6
+bindsym $mod+Shift+7 move container to workspace $ws_misc8
+bindsym $mod+Shift+8 move container to workspace $ws_m8s
+bindsym $mod+Shift+9 move container to workspace $ws_coms
+bindsym $mod+Shift+0 move container to workspace $ws_media
+
+# map workspaces to monitors
+# using 'primary' or vars is not reliable for some reason
+workspace $ws_long output "DVI-D-1"
+workspace $ws_web output "HDMI-1"
+workspace $ws_code output "HDMI-1"
+workspace $ws_view output "HDMI-1"
+workspace $ws_misc5 output "HDMI-1"
+workspace $ws_misc6 output "HDMI-1"
+workspace $ws_misc7 output "HDMI-1"
+workspace $ws_m8s output "HDMI-1"
+workspace $ws_coms output "HDMI-1"
+workspace $ws_media output "HDMI-1"
+
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# Logout and Shutdown
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout ?' -b 'Sure' 'i3-msg exit'"
+bindsym $mod+Shift+h exec "i3-nagbar -t warning -m 'Shutdown ?' -b 'Yeah, sure' 'shutdown -h now'"
+
+
+# minimise and maximise
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+plus scratchpad show
+
+# Lock screen command
+bindsym $mod+l exec "pkill -u $USER -USR1 dunst && i3lock-fancy -g -t "" && pkill -u $USER -USR2 dunst"
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+		# These bindings trigger as soon as you enter the resize mode
+
+		# same bindings, but for the arrow keys
+		bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Down resize grow height 10 px or 10 ppt
+		bindsym Up resize shrink height 10 px or 10 ppt
+		bindsym Right resize grow width 10 px or 10 ppt
+
+		# back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+# Define i3 Colors
+set $color-bg				"#2f343f"
+set $color-bg-inactive		"#2f343f"
+set $color-text				"#f3f4f5"
+set $color-text-inactive	"#676E7D"
+set $color-bg-urgent		"#E53935"
+set $color-split-indicator	"#00FF00"
+
+# Window Colors			# border			# background		# text					# split indicator
+client.focused			$color-bg			$color-bg			$color-text				$color-split-indicator	
+client.unfocused		$color-bg-inactive	$color-bg-inactive	$color-text-inactive	$color-split-indicator	
+client.focused_inactive	$color-bg-inactive	$color-bg-inactive	$color-text-inactive	$color-split-indicator	
+client.urgent			$color-bg-urgent	$color-bg-urgent	$color-text				$color-split-indicator	
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	status_command i3status
+	colors {
+		background $color-bg
+		separator #757575
+		#					border				background				text
+		focused_workspace	$color-bg			$color-text-inactive	$color-text
+		inactive_workspace	$color-bg-inactive	$color-bg-inactive		$color-text-inactive
+		urgent_workspace	$color-bg-urgent	$color-bg-urgent		$color-text
+	}
+}
+
+
+# Custom Keymap Buttons
+# install `playerctl` from Github deb, use `xmodmap -pke` to see all keymaps, and `xev` to find specific keycode.
+# https://github.com/acrisci/playerctl/releases
+# https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
+bindcode 127 exec playerctl play-pause
+bindcode 78 exec playerctl next
+
+
+# Quasi-Fibonacci (Alternating/Dwindling) Layout Splits
+# https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
+default_orientation vertical 
+for_window [class=".*"] split toggle
+bindsym $mod+shift+q split toggle kill 
+
+
+# Floating Assignments
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="settings"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+# App Wordspace Assignment (Spotify bug https://github.com/i3/i3/issues/2060)
+assign [class="Slack"] $ws_m8s
+assign [class="Spotify"] $ws_media
+for_window [class="Spotify"] move to workspace $ws_media
+
+
+# Compton - Shaddows, Fade and Blur
+exec_always --no-startup-id "killall -q compton; compton --blur-background --config ~/.config/i3/compton.conf"
+
+
+# (d)Menu
+bindsym $mod+d exec "rofi -show combi -combi-modi window,drun,run -display-combi ':' -display-drun 'app' -show-icons -matching fuzzy -theme hozza-arc-dark"
+bindsym $mod+Shift+d exec rofi -show window -show-icons -matching fuzzy -theme hozza-arc-dark
+
+
+# Notifications
+exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/dunst/dunstrc"
+
+
+# Trays & Deamons
+exec --no-startup-id blueberry-tray
+exec --no-startup-id dropbox start
+
+
+# Apps
+exec --no-startup-id spotify
+exec --no-startup-id slack
+
+
+# Start on Workspace 2
+exec --no-startup-id i3-msg 'workspace $ws_web;'

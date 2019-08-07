@@ -1,0 +1,35 @@
+# functions, bigger than aliases
+# nothing should be run from here
+hozza_check_mail() {
+	# load mail (Headers only) output error (stderr) like no messages (2>) to oblivion
+	local mailcount=$( mail -H 2> /dev/null | wc -l )
+
+	if [ "$mailcount" -eq "1" ]; then
+		echo "$mailcount mail"
+	elif [ "$mailcount" -gt "1" ]; then
+		echo "$mailcount mails"
+	else
+		echo "no mail"
+	fi
+}
+
+# wttr curl https://wttr.in/:bash.function
+hozza_wttr() {
+	# edited by hozza, +http +silent. Usage: `$ wttr "London?1F"` Help: `$ curl wttr.in/:help`
+	local request="https://wttr.in/${1-Paris}"
+	[ "$COLUMNS" -lt 125 ] && request+='?n'
+	curl -s -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
+
+hozza_welcome() {
+	local welcome="\n\n"
+	welcome+=$(figlet "$HOST" -t)
+	welcome+="\n\n\n"
+	welcome+=$(fortune -e fortunes literature $PRIVATES/quotes)
+	welcome+="\n\n\n"
+	welcome+=$(hozza_wttr "London?2F" | tail -n +8) # tail removes the 8 line tall 'current weather'
+	welcome+="\n\n$USER has $(hozza_check_mail).\n\n"
+
+	echo $welcome | sed 's/^/\t/'
+}
+

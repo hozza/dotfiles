@@ -1,0 +1,18 @@
+# Common shortcuts
+alias reload="source ~/.zshrc"
+
+alias l="ls -lFh --group-directories-first --color=auto"
+alias la="ls -lAFh --group-directories-first --color=auto"
+alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
+alias ls="ls --color=auto"
+
+alias c="clear"
+alias q="exit"
+alias cm=hozza_check_mail
+
+alias notes="vim $HOME/notes.md"
+
+# don't use rm, instead use trash and untrash
+alias trash="mv -i -t ~/.trash/"
+function untrash() { mv -i -t . ~/.trash/"$@" }
+
