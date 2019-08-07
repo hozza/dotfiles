@@ -31,7 +31,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Configs
 
-export DOTFILES="$HOME/.dotfiles"
+export DOTFILES="$HOME/dotfiles"
 export PRIVATES="$HOME/.dotfiles_private"
 
 HISTFILE=$PRIVATES/.zsh_history
