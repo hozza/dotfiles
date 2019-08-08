@@ -8,50 +8,47 @@ set nocompatible				" be iMproved, required
 
 
 """""""""""""""""""""""""""""""""""""
-" init Vundle
+" init vim-plug
 """""""""""""""""""""""""""""""""""""
-" see :h vundle for more details or wiki for FAQ
-"""""""""""""""""""""""""""""""""""""
-filetype off					" required for Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'	" required for Vundle
+" auto install if required
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle') " not `~/.vim/plugged`, migration from Vundle
+Plug 'junegunn/vim-plug' " vim-plug manages vim-plug
 
 " Visual
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 " Themes
-Plugin 'joshdick/onedark.vim'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'ajmwagar/vim-deus'
-Plugin 'liuchengxu/space-vim-dark'
-Plugin 'dracula/vim'
+Plug 'joshdick/onedark.vim'
+Plug 'ayu-theme/ayu-vim'
 
 " Environment
-Plugin 'tpope/vim-tbone'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'mbbill/undotree'
+Plug 'tpope/vim-tbone' " non-GUI tmux copy/paste
+Plug 'christoomey/vim-tmux-navigator' " split nav consistency
+Plug 'mbbill/undotree'
 
 " Code
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'Townk/vim-autoclose'
+Plug 'Townk/vim-autoclose'
 
-Plugin 'w0rp/ale'
-Plugin 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot' " a bazillion langs intelligently loaded
 
-Plugin 'majutsushi/tagbar'
-Plugin 'lvht/tagbar-markdown'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'lvht/tagbar-markdown', { 'on': 'TagbarToggle' }
 
-" Plugins must be added before the following line
-call vundle#end()			" required vundle
-filetype plugin indent on	" required vundle
-
+call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""
