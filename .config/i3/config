@@ -164,6 +164,8 @@ client.urgent			$color-bg-urgent	$color-bg-urgent	$color-text				$color-split-in
 # finds out, if available)
 bar {
 	status_command i3status
+	tray_output primary
+	separator_symbol " : "
 	colors {
 		background $color-bg
 		separator #757575
@@ -198,6 +200,7 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_role="settings"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
+for_window [class="MintUpdate.py"] floating enable
 
 # App Wordspace Assignment (Spotify bug https://github.com/i3/i3/issues/2060)
 assign [class="Slack"] $ws_m8s
@@ -221,6 +224,8 @@ exec_always --no-startup-id "killall -q dunst; dunst -config ~/.config/dunst/dun
 # Trays & Deamons
 exec --no-startup-id blueberry-tray
 exec --no-startup-id dropbox start
+exec --no-startup-id "/opt/piavpn/bin/pia-client --quiet"
+exec --no-startup-id mintupdate-launcher
 
 
 # Apps
