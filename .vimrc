@@ -137,6 +137,20 @@ set showmatch						" show matching brackets
 set mat=2							" matching brackets m/s blink
 set scrolloff=5						" min lines above & below cursor
 
+" https://medium.com/@khamer/writing-php-and-js-with-vim-in-2017-f58e4a5738ae
+set showbreak=↪\  					" better line wraps
+set breakindent 
+set breakindentopt=shift:-2
+set formatoptions+=n				" continue number list
+
+" tame all the vim extra/meta files
+silent! call mkdir($HOME."/.vim/backup", "p")
+silent! call mkdir($HOME."/.vim/swap", "p")
+silent! call mkdir($HOME."/.vim/undo", "p")
+set backup backupdir=$HOME/.vim/backup//
+set swapfile directory=$HOME/.vim/swap//
+set undofile undodir=$HOME/.vim/undo//
+
 " https://marcgg.com/blog/2016/03/01/vimrc-example/
 set colorcolumn=120
 
