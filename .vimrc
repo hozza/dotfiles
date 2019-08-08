@@ -48,6 +48,10 @@ Plug 'sheerun/vim-polyglot' " a bazillion langs intelligently loaded
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'lvht/tagbar-markdown', { 'on': 'TagbarToggle' }
 
+Plug 'ap/vim-css-color' " colors all hex/rgb colors
+
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+
 call plug#end()
 
 
@@ -67,6 +71,9 @@ let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 let g:tagbar_sort = 0
 let g:tagbar_singleclick = 1
+
+" auto run Goyo (distraction-free mode) for markdown
+autocmd VimEnter * if exists(":Goyo") | exe ":Goyo" | endif
 
 let ayucolor="mirage"
 
