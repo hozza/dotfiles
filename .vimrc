@@ -20,6 +20,8 @@ endif
 call plug#begin('~/.vim/bundle') " not `~/.vim/plugged`, migration from Vundle
 Plug 'junegunn/vim-plug' " vim-plug manages vim-plug
 
+Plug 'tpope/vim-sensible' " defaults everyone can agree on
+
 " Visual
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -104,14 +106,9 @@ autocmd BufNewFile,BufRead * call matchadd('NonText', '\n\+')
 """"""""""""""""""""""""""""""""""""
 
 """ VIM Environment 
-set encoding=UTF-8
 set ttyfast							" improve display on fast connection "
 set mouse=a							" enable mouse "
-set backspace=indent,eol,start		" backspace behaviour
 set number							" line-numbers
-set ruler							" show position
-set laststatus=2					" always display the status bar.
-set wildmenu						" command line options as menu
 set title							" file as windows title
 set confirm							" confirm with dialog boxes
 
@@ -128,8 +125,6 @@ set showcmd							"show incomplete cmds down the bottom
 set showmode						"show current mode down the bottom
 
 """ VIM Style
-syntax on
-
 set termguicolors
 
 set background=dark					" dark mode
@@ -151,8 +146,6 @@ set listchars=tab:\|\ ,space:·,trail:·		" show tabs & spaces
 
 set tabstop=4								" proper tabs
 set shiftwidth=4
-set smarttab
-set autoindent
 
 set spellfile=$PRIVATES/vim.spellfile.add	" see dotfile repo
 
