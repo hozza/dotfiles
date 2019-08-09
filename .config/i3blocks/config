@@ -23,6 +23,11 @@
 command=/usr/share/i3blocks/$BLOCK_NAME
 markup=none
 
+# default mediaplayer was bugged with spotify
+[spotify]
+command=echo "$( playerctl metadata artist ) - $( playerctl metadata title )"
+interval=3
+
 # Key indicators
 # Add the following bindings to i3 config file:
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
