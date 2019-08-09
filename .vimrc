@@ -196,7 +196,7 @@ noremap <F2> :NERDTreeToggle<CR>
 noremap <F9> :TagbarToggle<CR>
 
 " unsaved edites diff
-command Udiff w !diff % -
+command! UnsavedDiff w !diff % -
 
 """ Spellcheck Mappings 
 " https://stackoverflow.com/a/16481737/614616
