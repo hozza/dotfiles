@@ -36,6 +36,12 @@ Plug 'tpope/vim-tbone' " non-GUI tmux copy/paste
 Plug 'christoomey/vim-tmux-navigator' " split nav consistency
 Plug 'mbbill/undotree'
 
+" WARNING: install the fzf go application outside vim
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'junegunn/fzf.vim' " fzf (CtrlP replacement)
+Plug 'airblade/vim-rooter' " guess the projects path, for NerdTree/fzf
+
 " Code
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
@@ -62,6 +68,8 @@ call plug#end()
 " VIM Plugin Configs
 " load before VIM Configs for themes
 """""""""""""""""""""""""""""""""""""
+
+let g:fzf_layout = { 'up': '~15%' }
 
 let g:airline#extensions#tabline#enabled = 1	" airline config - show buffer 'tabs'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -199,5 +207,17 @@ noremap <F7> :setlocal spell! spelllang=en_gb<CR>
 
 " auto correct last misspelling
 noremap <F8> <Esc>[s1z=
+
+" zfz (CtrlP) Fuzzy Search
+" <Leader> is `\` by default
+nmap <Leader><Leader> <Leader>g
+nmap <Tab> <Leader>b
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>g :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>t :Tags<CR>
+nnoremap <Leader>h :History<CR>
+nnoremap <Leader>? :Helptags<CR>
 
 " now, go and write something! :D
