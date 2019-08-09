@@ -48,5 +48,5 @@ ask_about() {
 
 }
 
-ask_about .zshrc .vimrc .tmux.conf.local .gitconfig .dircolors .config/dunst/dunstrc .config/i3/config .config/i3/compton.conf .config/rofi/hozza-arc-dark.rasi
+ask_about .zshrc .vimrc .tmux.conf.local .gitconfig .dircolors .config/dunst/dunstrc .config/i3/config .config/i3/compton.conf .config/i3blocks/config .config/rofi/hozza-arc-dark.rasi
 
