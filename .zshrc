@@ -27,7 +27,8 @@ plugins=(git tmux extract common-aliases command-not-found colored-man-pages the
 
 source $ZSH/oh-my-zsh.sh
 
-
+# if vim has installed fzf, enable it for zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Configs
 
