@@ -22,6 +22,7 @@
 # Each block command defaults to the script name to avoid boilerplate.
 command=/usr/share/i3blocks/$BLOCK_NAME
 markup=none
+color=#676E7D
 
 # default mediaplayer was bugged with spotify
 [spotify]
@@ -32,17 +33,17 @@ interval=3
 # Add the following bindings to i3 config file:
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-[keyindicator]
-instance=CAPS
-interval=once
-signal=11
-separator=false
-separator_block_width=7
+#[keyindicator]
+#instance=CAPS
+#interval=once
+#signal=11
+#separator=false
+#separator_block_width=7
 
-[keyindicator]
-instance=NUM
-interval=once
-signal=11
+#[keyindicator]
+#instance=NUM
+#interval=once
+#signal=11
 
 # Volume indicator
 # The first parameter sets the step (and units to display)
@@ -70,8 +71,14 @@ interval=30
 [load_average]
 interval=10
 
-# Date Time
+# Date
 [time]
-command=date '+(%b-%a) %Y-%m-%d %H:%M'
-interval=60
+command=date '+(%b-%a) %Y-%m-%d'
+interval=3600
+separator=false
 
+# Time (with double space padding for the end... :P)
+[time]
+command=date '+%H:%M  '
+interval=60
+color=#FFFFFF

@@ -168,8 +168,9 @@ client.urgent			$color-bg-urgent	$color-bg-urgent	$color-text				$color-split-in
 # finds out, if available)
 bar {
 	status_command i3blocks
+	position top
 	tray_output primary
-	separator_symbol " : "
+	separator_symbol " "
 	colors {
 		background $color-bg
 		separator #757575
