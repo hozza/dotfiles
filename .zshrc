@@ -3,41 +3,42 @@
 # see dotfiles repo
 #####################################
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# antigen - better than oh-my-zsh
+source ~/antigen.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen theme romkatv/powerlevel10k
+antigen apply
 
-# will also reconnect, https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/tmux
-ZSH_TMUX_AUTOSTART="true"
-# autoquite is a nightmare if tmux fails, it's on by default when autostart is true.
-ZSH_TMUX_AUTOQUIT="false"
-
-ZSH_THEME="agnoster"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-HIST_STAMPS="yyyy-mm-dd"
-
-# oh-my-zsh Plugins
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-plugins=(git tmux extract common-aliases command-not-found colored-man-pages themes)
-
-source $ZSH/oh-my-zsh.sh
+# `p10k` prompt theme/extension 
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # if vim has installed fzf, enable it for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Configs
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+
 
 export DOTFILES="$HOME/dotfiles"
 export PRIVATES="$HOME/.dotfiles_private"
 
-HISTFILE=$PRIVATES/.zsh_history
+# zsh history
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
 
-#add own programmes locally 
+HISTFILE=$PRIVATES/.zsh_history
+HIST_STAMPS="yyyy-mm-dd"
+HISTSIZE=50000
+SAVEHIST=10000
+
+#add own programmes locally in ~/bin
 export PATH=$PATH:~/bin
 
 source $DOTFILES/.zsh_functions

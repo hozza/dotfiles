@@ -6,6 +6,11 @@ alias la="ls -lAFh --group-directories-first --color=auto"
 alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
 alias ls="ls --color=auto"
 
+alias grep='grep --color'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
 alias c="clear"
 alias q="exit"
 alias cm=hozza_check_mail
