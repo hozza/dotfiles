@@ -182,8 +182,11 @@ set spellfile=$PRIVATES/vim.spellfile.add	" see dotfile repo
 """"""""""""""""""""""""""""""""""""
 
 inoremap jj <ESC>
-" inoremap jk <esc>
-" inoremap kj <esc>
+
+" easier commands
+" https://www.reddit.com/r/vim/comments/ctdcua/nnoremap_cr/exk5pfa
+nnoremap ; :
+nnoremap : ;
 
 " keep selection when (in/out)denting
 vnoremap < <gv
