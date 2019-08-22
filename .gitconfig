@@ -39,9 +39,14 @@
 # https://github.com/csswizardry/dotfiles/blob/master/.gitconfig
 [alias]
 	ci = commit
-	com = commit
 	co = checkout
 	st = status
+	d = diff
+	a = add
+
+	# easy patching
+	sp = stage -p
+	cip = commit -p
 	
 	# Sneak changes into your previous commit
 	sneak = commit -a --amend --no-edit

@@ -208,6 +208,9 @@ command! UnsavedDiff w !diff % -
 " toggle spellcheck
 noremap <F7> :setlocal spell! spelllang=en_gb<CR>	
 
+" auto enable spelling for:
+autocmd FileType gitcommit setlocal spell
+
 " auto correct last misspelling
 noremap <F8> <Esc>[s1z=
 

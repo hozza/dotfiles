@@ -1,6 +1,8 @@
 # Common shortcuts
 alias reload="source ~/.zshrc"
 
+alias g="git"
+
 alias l="ls -lFh --group-directories-first --color=auto"
 alias la="ls -lAFh --group-directories-first --color=auto"
 alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
