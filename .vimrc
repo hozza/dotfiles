@@ -217,10 +217,10 @@ noremap <F8> <Esc>[s1z=
 " zfz (CtrlP) Fuzzy Search
 " <Leader> is `\` by default
 nmap <Leader><Leader> <Leader>g
-nmap <Tab> <Leader>b
+nnoremap <Tab> :bn<CR>
+nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :GFiles<CR>
-nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>h :History<CR>
