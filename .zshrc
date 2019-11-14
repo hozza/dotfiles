@@ -10,8 +10,12 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen theme romkatv/powerlevel10k
 antigen apply
 
+
+export DOTFILES="$HOME/dotfiles"
+export PRIVATES="$HOME/dotfiles_private"
+
 # `p10k` prompt theme/extension 
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+[[ -f $DOTFILES/lib/.p10k.zsh ]] && source $DOTFILES/lib/.p10k.zsh
 
 # if vim has installed fzf, enable it for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -19,10 +23,6 @@ antigen apply
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-
-
-export DOTFILES="$HOME/dotfiles"
-export PRIVATES="$HOME/.dotfiles_private"
 
 # zsh history
 setopt extended_history       # record timestamp of command in HISTFILE

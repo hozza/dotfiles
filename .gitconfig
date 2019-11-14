@@ -5,6 +5,7 @@
 [core]
 	editor = vim
 	whitespace = warn
+	excludesfile = ~/dotfiles/lib/.gitignore_global
 
 # this seeems to be the dotfile convention
 [color]
@@ -71,6 +72,6 @@
 # Privates
 # use separate file for username, github token, etc.
 [include]
-	path = ~/.dotfiles_private/.gitconfig.local
+	path = ~/dotfiles_private/.gitconfig.local
 
 # now, go and commit something! :D
