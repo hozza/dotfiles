@@ -53,6 +53,8 @@ To keep everything simple, this `~/dotfiles` repo is structured like a mirror of
 
 **The proper way:**
 
+Some configs will source files from `~/dotfiles/lib` directly, keep this in mind if installing outside the recommended path.
+
 1. In your home directory `cd ~`, clone this repo with `git clone https://github.com/hozza/dotfiles`.
 2. In the dotfiles dir, make the install.sh executable with `cd ~/dotfiles && chmod u+x ./install.sh`.
 3. While still in the dotfiles dir, run the installer with `./intall.sh`.
