@@ -51,6 +51,11 @@ export MAILPATH=/var/mail/$USER?'$USER has $(hozza_check_mail).'
 # 'install' dir colors for ls, see the file for more info
 eval $(dircolors -b $HOME/.dircolors)
 
+# tmux-ify | automatically attach to 'ssh_dev' or create it if not in one already
+if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
+	tmux attach-session -t ssh_dev || tmux new-session -s ssh_dev
+fi
+
 # Terminal Screensaver
 TRAPALRM() { pipes.sh }
 export TMOUT=480
