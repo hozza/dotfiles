@@ -41,8 +41,9 @@ SAVEHIST=10000
 #add own programmes locally in ~/bin
 export PATH=$PATH:~/bin
 
-source $DOTFILES/.zsh_functions
-source $DOTFILES/.zsh_aliases
+source $DOTFILES/lib/.zsh_aliases
+source $DOTFILES/lib/.zsh_functions
+
 
 # `$ mail` shows all system mail (like cron output) - this edits the default notice
 export MAILPATH=/var/mail/$USER?'$USER has $(hozza_check_mail).'

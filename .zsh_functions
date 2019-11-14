@@ -44,3 +44,9 @@ man() {
 	export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 	command man "$@"
 }
+
+# cd & ls
+# with directory history, see aliases
+cl() {
+	[[ $- == *i* ]] && pushd "$@" && la
+}

@@ -8,6 +8,10 @@ alias la="ls -lAFh --group-directories-first --color=auto"
 alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
 alias ls="ls --color=auto"
 
+# directory history
+# use cd ~0-9, `cl` func uses this too.
+alias d="dirs -v"
+
 alias grep='grep --color'
 alias rm='rm -i'
 alias cp='cp -i'
