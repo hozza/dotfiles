@@ -1,0 +1,6 @@
+# Connection Plugins
+.hsftp
+
+# Backups & Archives
+*.tar.gz
+*.bak
