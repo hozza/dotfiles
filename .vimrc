@@ -27,7 +27,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
-" Themes
+" Theme
 Plug 'joshdick/onedark.vim'
 Plug 'ayu-theme/ayu-vim'
 
@@ -61,6 +61,10 @@ Plug 'ap/vim-css-color' " colors all hex/rgb colors
 
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
+Plug 'hesselbom/vim-hsftp'
+
+
+
 call plug#end()
 
 
@@ -72,9 +76,12 @@ call plug#end()
 let g:fzf_layout = { 'up': '~15%' }
 
 let g:airline#extensions#tabline#enabled = 1	" airline config - show buffer 'tabs'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'jsformatter'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'wombat'					" add some definition to splits
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let NERDTreeShowHidden = 1						" show dotfiles automatically in nerdtree
 
@@ -123,6 +130,7 @@ set mouse=a							" enable mouse "
 set number							" line-numbers
 set title							" file as windows title
 set confirm							" confirm with dialog boxes
+set signcolumn=yes					" always show gutter (git/errors)
 
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 set lazyredraw						" no unnecessary redraw
@@ -183,7 +191,7 @@ set spellfile=$PRIVATES/vim.spellfile.add	" see dotfile repo
 
 inoremap jj <ESC>
 
-" easier commands
+" easier commands (but a bit dirty...)
 " https://www.reddit.com/r/vim/comments/ctdcua/nnoremap_cr/exk5pfa
 nnoremap ; :
 nnoremap : ;
@@ -217,7 +225,6 @@ noremap <F8> <Esc>[s1z=
 " zfz (CtrlP) Fuzzy Search
 " <Leader> is `\` by default
 nmap <Leader><Leader> <Leader>g
-nnoremap <Tab> :bn<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :GFiles<CR>
@@ -225,5 +232,17 @@ nnoremap <Leader>l :Lines<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>? :Helptags<CR>
+
+" buffer (...tab) control
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+nnoremap <Leader>dd :bdelete<CR>
+
+" 'multiple cursors'
+" `.` to repeat, `n` to skip.
+" Forward, and Backwards respectively
+" https://www.reddit.com/r/vim/comments/8k4p6v/what_are_your_best_mappings/dz4szts/
+nnoremap <Leader>x *``cgn
+nnoremap <Leader>X #``cgN
 
 " now, go and write something! :D
