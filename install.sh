@@ -80,6 +80,7 @@ read -p "Do you want dev stuff? vim, fzf etc. (y/n): " yn
 case $yn in
 	[Yy]* ) ask_about \
 	.vimrc \
+	hints \
 	;;
 	[Nn]* ) ;;
 	* ) echo "Please answer 'y' for yes or 'n' for no.";;

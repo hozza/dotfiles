@@ -1,0 +1,42 @@
+# vim Hints
+
+F2		=NERDTree 
+F9		=TagBar
+F7|F8	=spellcheck, fix
+
+jj		=normal mode
+o/O		=inset new line under/over
+A		=inset end of line
+
+Tab		=next buff
+S-Tab	=prev buff
+\dd 	=del buff
+
+\b		=fuz buffers
+\f|\g	=fuz files, git files
+\l|\t	=fuz lines, tags
+
+\x|\X	=replace, back/forward
+
+u		=undo 
+C+r		=redo 
+#dd		=del 
+y		=copy
+#yy		=copy line
+p		=paste 
+J		=join 
+
+~		=case swap
+*		=search 
+zg		=add spell to dic 
+
+v		=visual mode
+><		=indent
+
+C+o		=single command 
+i		=insert 
+
+:x		=save 
+:b#		=buffer number
+:bn		=buffer next
+:bp		=buffer prev

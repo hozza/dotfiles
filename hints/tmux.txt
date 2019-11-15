@@ -1,0 +1,14 @@
+# tmux Hints
+
+ta		=attach 
+tad		=detach 
+tl		=list 
+
+C+a		=prefix 
+
+-		=split-hoz 
+_		=split-vert 
+
+><		=swap 
+alt+><	=resize
+
