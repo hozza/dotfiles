@@ -57,7 +57,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 
 # Workspaces
@@ -213,7 +213,6 @@ for_window [class="MintUpdate.py"] floating enable
 assign [class="Slack"] $ws_m8s
 assign [class="Spotify"] $ws_media
 for_window [class="Spotify"] move to workspace $ws_media
-
 
 # Compton - Shaddows, Fade and Blur
 exec_always --no-startup-id "killall -q compton; compton --blur-background --config ~/.config/i3/compton.conf"
