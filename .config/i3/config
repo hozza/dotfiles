@@ -221,6 +221,7 @@ exec_always --no-startup-id "killall -q compton; compton --blur-background --con
 # (d)Menu
 bindsym $mod+d exec "rofi -show combi -combi-modi window,drun,run -display-combi ':' -display-drun 'app' -show-icons -matching fuzzy -theme hozza-arc-dark"
 bindsym $mod+Shift+d exec rofi -show window -show-icons -matching fuzzy -theme hozza-arc-dark
+bindsym $mod+c exec "rofi -show calc -modi calc:~/dotfiles/.config/rofi/rofi-calculator.sh -display-combi '= ' -theme hozza-arc-dark"
 
 
 # Notifications
