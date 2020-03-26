@@ -8,8 +8,10 @@
 # Milti-monitor Setup
 # make command with `arandr`, save and copy the `xrandr` cmd output
 # AFTER run feh or it tiles wallpapers oddly on some setups
-exec xrandr --output DP-1 --off --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate left --output HDMI-1 --primary --mode 1920x1080 --pos 1080x384 --rotate normal && feh --bg-fill --randomize ~/Dropbox/Wallpapers/*
+#exec xrandr --output DP-1 --off --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate left --output HDMI-1 --primary --mode 1920x1080 --pos 1080x384 --rotate normal && feh --bg-fill ~/Dropbox/refract-wallpaper.jpg
 
+# Single Monitor Setup
+exec feh --bg-fill ~/Dropbox/refract-wallpaper.jpg
 
 set $mod Mod4
 
@@ -55,7 +57,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 
 # Workspaces
@@ -212,7 +214,6 @@ assign [class="Slack"] $ws_m8s
 assign [class="Spotify"] $ws_media
 for_window [class="Spotify"] move to workspace $ws_media
 
-
 # Compton - Shaddows, Fade and Blur
 exec_always --no-startup-id "killall -q compton; compton --blur-background --config ~/.config/i3/compton.conf"
 
@@ -220,6 +221,7 @@ exec_always --no-startup-id "killall -q compton; compton --blur-background --con
 # (d)Menu
 bindsym $mod+d exec "rofi -show combi -combi-modi window,drun,run -display-combi ':' -display-drun 'app' -show-icons -matching fuzzy -theme hozza-arc-dark"
 bindsym $mod+Shift+d exec rofi -show window -show-icons -matching fuzzy -theme hozza-arc-dark
+bindsym $mod+c exec "rofi -show calc -modi calc:~/dotfiles/.config/rofi/rofi-calculator.sh -display-combi '= ' -theme hozza-arc-dark"
 
 
 # Notifications
@@ -240,3 +242,17 @@ exec --no-startup-id slack
 
 # Start on Workspace 2
 exec --no-startup-id i3-msg 'workspace $ws_web;'
+
+# Gaps Stuff
+for_window [class="^.*"] border pixel 2
+set $gaps_inner 10
+set $gaps_outer 15
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+bindsym $mod+z			gaps outer current plus 3
+bindsym $mod+Shift+z	gaps outer current minus 3
+bindsym $mod+Shift+a			gaps inner current set $gaps_inner; gaps outer current set $gaps_outer
+bindsym $mod+a	gaps inner current set 0; gaps outer current set 0	
+smart_gaps on
+smart_gaps inverse_outer
+smart_borders on
