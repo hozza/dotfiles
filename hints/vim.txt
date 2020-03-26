@@ -4,7 +4,10 @@ F2		=NERDTree
 F9		=TagBar
 F7|F8	=spellcheck, fix
 
-jj		=normal mode
+za		=toggle code fold
+g;		=jump to last edit
+
+jj		=esc/normal mode
 o/O		=inset new line under/over
 A		=inset end of line
 
@@ -27,7 +30,8 @@ p		=paste
 J		=join 
 
 ~		=case swap
-*		=search 
+*|\		=search/find
+%s		= replace
 zg		=add spell to dic 
 
 v		=visual mode
@@ -36,7 +40,25 @@ v		=visual mode
 C+o		=single command 
 i		=insert 
 
-:x		=save 
+:x		=save
+:saveas =make copy
 :b#		=buffer number
 :bn		=buffer next
 :bp		=buffer prev
+
+:sp		=split view
+:vsp	=vertical split
+
+:so $MYVIMRC	= reload settings in-place
+Ctrl+o			= run normal mode command once
+
+]s 		= next spelling error
+[s 		= previous spelling error
+z= 		= show suggestions
+zg 		= adding spelling to dictionary
+zug 	= remove word from dictionary
+
+q[a-z]	= macros
+"[a-z]	= registers
+
+Cw+=	= reset Goyo size

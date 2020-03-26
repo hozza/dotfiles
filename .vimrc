@@ -73,7 +73,7 @@ call plug#end()
 " load before VIM Configs for themes
 """""""""""""""""""""""""""""""""""""
 
-let g:fzf_layout = { 'up': '~15%' }
+let g:fzf_layout = { 'up': '~10%' }
 
 let g:airline#extensions#tabline#enabled = 1	" airline config - show buffer 'tabs'
 let g:airline#extensions#tabline#formatter = 'jsformatter'
@@ -94,7 +94,7 @@ let g:tagbar_sort = 0
 let g:tagbar_singleclick = 1
 
 " auto run Goyo (distraction-free mode) for markdown
-autocmd VimEnter * if exists(":Goyo") | exe ":Goyo" | endif
+"autocmd VimEnter * if exists(":Goyo") | exe ":Goyo" | endif
 
 let ayucolor="mirage"
 
@@ -183,6 +183,11 @@ set shiftwidth=4
 
 set spellfile=$PRIVATES/vim.spellfile.add	" see dotfile repo
 
+" https://unix.stackexchange.com/questions/141097/how-to-enable-and-use-code-folding-in-vim
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 
 
 """"""""""""""""""""""""""""""""""""
@@ -191,10 +196,15 @@ set spellfile=$PRIVATES/vim.spellfile.add	" see dotfile repo
 
 inoremap jj <ESC>
 
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+nnoremap <Leader>n :set relativenumber!<CR>
+
+
 " easier commands (but a bit dirty...)
 " https://www.reddit.com/r/vim/comments/ctdcua/nnoremap_cr/exk5pfa
-nnoremap ; :
-nnoremap : ;
+nnoremap <Space> :
 
 " keep selection when (in/out)denting
 vnoremap < <gv
