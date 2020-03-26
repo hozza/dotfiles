@@ -8,8 +8,10 @@
 # Milti-monitor Setup
 # make command with `arandr`, save and copy the `xrandr` cmd output
 # AFTER run feh or it tiles wallpapers oddly on some setups
-exec xrandr --output DP-1 --off --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate left --output HDMI-1 --primary --mode 1920x1080 --pos 1080x384 --rotate normal && feh --bg-fill --randomize ~/Dropbox/Wallpapers/*
+#exec xrandr --output DP-1 --off --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate left --output HDMI-1 --primary --mode 1920x1080 --pos 1080x384 --rotate normal && feh --bg-fill ~/Dropbox/refract-wallpaper.jpg
 
+# Single Monitor Setup
+exec feh --bg-fill ~/Dropbox/refract-wallpaper.jpg
 
 set $mod Mod4
 
