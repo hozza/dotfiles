@@ -2,6 +2,10 @@
 # Git Configs by hozza
 # Private info is outside dotfile repo
 #####################################
+
+# a great reminder / tutorial
+# https://medium.com/@s.kang919/my-git-feature-branch-workflow-a4b9647ea459
+
 [core]
 	editor = vim
 	whitespace = warn
@@ -44,6 +48,9 @@
 	st = status
 	d = diff
 	a = add
+	b = branch
+	cob = checkout -b
+	bd = branch -D
 
 	# easy patching
 	sp = stage -p
