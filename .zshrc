@@ -57,8 +57,8 @@ if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
 fi
 
 # Terminal Screensaver
-TRAPALRM() { pipes.sh }
-export TMOUT=480
+#TRAPALRM() { pipes.sh }
+#export TMOUT=480
 
 # run
 hozza_welcome

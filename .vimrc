@@ -29,15 +29,11 @@ Plug 'ryanoasis/vim-devicons'
 
 " Theme
 Plug 'joshdick/onedark.vim'
-Plug 'ayu-theme/ayu-vim'
 
 " Environment
 Plug 'tpope/vim-tbone' " non-GUI tmux copy/paste
 Plug 'christoomey/vim-tmux-navigator' " split nav consistency
 Plug 'mbbill/undotree'
-
-" WARNING: install the fzf go application outside vim
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/fzf.vim' " fzf (CtrlP replacement)
 Plug 'airblade/vim-rooter' " guess the projects path, for NerdTree/fzf
@@ -96,8 +92,6 @@ let g:tagbar_singleclick = 1
 " auto run Goyo (distraction-free mode) for markdown
 "autocmd VimEnter * if exists(":Goyo") | exe ":Goyo" | endif
 
-let ayucolor="mirage"
-
 let g:onedark_terminal_italics=1
 
 " onedark Theme Overrides
@@ -132,6 +126,10 @@ set title							" file as windows title
 set confirm							" confirm with dialog boxes
 set signcolumn=yes					" always show gutter (git/errors)
 
+" https://vi.stackexchange.com/a/206
+autocmd VimResized * wincmd =
+
+
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 set lazyredraw						" no unnecessary redraw
 
@@ -155,7 +153,7 @@ colorscheme onedark					" theme
 set linebreak						" avoid word-break wrapping
 set showmatch						" show matching brackets
 set mat=2							" matching brackets m/s blink
-set scrolloff=5						" min lines above & below cursor
+set scrolloff=10					" min lines above & below cursor
 
 " https://medium.com/@khamer/writing-php-and-js-with-vim-in-2017-f58e4a5738ae
 set showbreak=↪\  					" better line wraps
