@@ -17,8 +17,12 @@ export PRIVATES="$HOME/dotfiles_private"
 # `p10k` prompt theme/extension 
 [[ -f $DOTFILES/lib/.p10k.zsh ]] && source $DOTFILES/lib/.p10k.zsh
 
-# if vim has installed fzf, enable it for zsh
+# local fzf install? enable for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# native fzf install? enable for zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh 
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -39,7 +43,10 @@ HISTSIZE=50000
 SAVEHIST=10000
 
 #add own programmes locally in ~/bin
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:~/gems/bin
+
+# dev env for ruby gems
+export GEM_HOME="$HOME/gems"
 
 source $DOTFILES/lib/.zsh_aliases
 source $DOTFILES/lib/.zsh_functions
