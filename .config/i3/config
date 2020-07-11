@@ -11,7 +11,7 @@
 #exec xrandr --output DP-1 --off --output DVI-D-1 --mode 1920x1080 --pos 0x0 --rotate left --output HDMI-1 --primary --mode 1920x1080 --pos 1080x384 --rotate normal && feh --bg-fill ~/Dropbox/refract-wallpaper.jpg
 
 # Single Monitor Setup
-exec feh --bg-fill ~/Dropbox/refract-wallpaper.jpg
+exec feh --bg-fill ~/Dropbox/Personal/Media/Wallpapers/refract-wallpaper.jpg
 
 set $mod Mod4
 
@@ -46,15 +46,15 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 # bindsym $mod+a focus parent
@@ -112,8 +112,8 @@ workspace $ws_coms output "HDMI-1"
 workspace $ws_media output "HDMI-1"
 
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Alt+c reload
+bindsym $mod+Alt+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -194,9 +194,9 @@ bindcode 78 exec playerctl next
 
 # Quasi-Fibonacci (Alternating/Dwindling) Layout Splits
 # https://www.reddit.com/r/i3wm/comments/4tw1jn/tip_quasi_alternatingfibonacci_layout/
-default_orientation vertical 
+default_orientation horizontal 
 for_window [class=".*"] split toggle
-bindsym $mod+shift+q split toggle kill 
+bindsym $mod+q split toggle kill 
 
 
 # Floating Assignments
@@ -219,7 +219,7 @@ exec_always --no-startup-id "killall -q compton; compton --blur-background --con
 
 
 # (d)Menu
-bindsym $mod+d exec "rofi -show combi -combi-modi window,drun,run -display-combi ':' -display-drun 'app' -show-icons -matching fuzzy -theme hozza-arc-dark"
+bindsym $mod+space exec "rofi -show combi -combi-modi window,drun,run -display-combi ':' -display-drun 'app' -show-icons -matching fuzzy -theme hozza-arc-dark"
 bindsym $mod+Shift+d exec rofi -show window -show-icons -matching fuzzy -theme hozza-arc-dark
 bindsym $mod+c exec "rofi -show calc -modi calc:~/dotfiles/.config/rofi/rofi-calculator.sh -display-combi '= ' -theme hozza-arc-dark"
 
