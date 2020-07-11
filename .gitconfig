@@ -76,8 +76,12 @@
 	# See which commits are on the remote that aren’t on your local branch
 	upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
 
+# store plaintext github personal access token
+[credential]
+	helper = store --file ~/dotfiles_private/.git-credentials
+
 # Privates
-# use separate file for username, github token, etc.
+# use separate file for username, etc.
 [include]
 	path = ~/dotfiles_private/.gitconfig.local
 
