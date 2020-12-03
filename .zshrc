@@ -48,6 +48,9 @@ export PATH=$PATH:~/bin:~/gems/bin
 # dev env for ruby gems
 export GEM_HOME="$HOME/gems"
 
+# dev env for pip2/python
+export PATH=$PATH:$HOME/.local/bin
+
 source $DOTFILES/lib/.zsh_aliases
 source $DOTFILES/lib/.zsh_functions
 
