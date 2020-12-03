@@ -1,0 +1,20 @@
+/* now just run `rofi -show conbi` */
+configuration {
+	modi: "combi,window,ssh,run"; /*Atl+Tab*/
+	combi-modi: "drun,window,ssh";
+	matching: "fuzzy";
+	/*sorting-method: "fzf";*/
+
+	drun-show-actions: true;
+
+	/*gnome-terminal is non-standard: https://github.com/davatorium/rofi/issues/1003 */
+	terminal: "gnome-terminal";
+	run-shell-command: "{terminal} -- bash -c \"{cmd}; bash\""; /*Shift+Enter in run mode*/
+	ssh-command: "{terminal} -- bash -c \"{ssh-client} {host}; bash\"";
+
+	window-thumbnail: true;
+	show-icons: true;
+	display-combi: "∞ ";
+	display-drun: "open";
+	theme: "hozza-arc-dark.rasi";
+}
