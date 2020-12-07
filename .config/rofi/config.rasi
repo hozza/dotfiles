@@ -1,9 +1,12 @@
 /* now just run `rofi -show conbi` */
 configuration {
-	modi: "combi,window,ssh,run"; /*Atl+Tab*/
+	modi: "combi,= :qalc,window,ssh,run"; /*Ctrl+Tab*/
 	combi-modi: "drun,window,ssh";
 	matching: "fuzzy";
-	/*sorting-method: "fzf";*/
+
+	/* Alt+Tab for auto-select in Window Switcher: https://github.com/davatorium/rofi/issues/38#issuecomment-218708479 */
+	kb-accept-entry: "Return,!Alt-Tab";
+	kb-row-down: "Down,Alt-Tab";
 
 	drun-show-actions: true;
 
@@ -13,8 +16,12 @@ configuration {
 	ssh-command: "{terminal} -- bash -c \"{ssh-client} {host}; bash\"";
 
 	window-thumbnail: true;
+	window-format: "{n:10} {c:10} | {t:50} | {w}";
 	show-icons: true;
 	display-combi: "∞ ";
-	display-drun: "open";
+	display-drun: "";
+	display-run: "!r";
+	display-window: "!w";
+	display-ssh: "!s";
 	theme: "hozza-arc-dark.rasi";
 }
