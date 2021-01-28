@@ -86,6 +86,8 @@ call plug#end()
 " load before VIM Configs for themes
 """""""""""""""""""""""""""""""""""""
 
+let g:prettier#config#print_width = 180
+
 "let g:fzf_layout = { 'up': '~10%' }
 
 "let g:user_emmet_settings = {
