@@ -24,9 +24,11 @@ Plug 'tpope/vim-sensible' " defaults tpope can agree on
 
 " Visual "
 """"""""""
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'ap/vim-css-color' " colors all hex/rgb colors
 
 Plug 'joshdick/onedark.vim' " theme
 
@@ -38,34 +40,37 @@ Plug 'junegunn/goyo.vim', { 'for': 'markdown' } | Plug 'junegunn/limelight.vim'
 """""""""""""""
 Plug 'tpope/vim-tbone' " non-GUI tmux copy/paste
 Plug 'christoomey/vim-tmux-navigator' " split nav consistency
-Plug 'mbbill/undotree'
-" far better than SuperTab
-Plug 'neitanod/vim-clevertab'
-" https://jeffkreeftmeijer.com/vim-number/
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
+Plug 'neitanod/vim-clevertab' " far better than SuperTab
+Plug 'jeffkreeftmeijer/vim-numbertoggle' " https://jeffkreeftmeijer.com/vim-number/
+
+Plug 'machakann/vim-highlightedyank'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim' " fzf (CtrlP replacement)
+
 Plug 'airblade/vim-rooter' " guess the projects path, for NerdTree
 
-Plug 'machakann/vim-highlightedyank'
+Plug 'hesselbom/vim-hsftp'
 
 
 " Navigation & Version Control "
 """"""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
+
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'lvht/tagbar-markdown', { 'on': 'TagbarToggle' }
 
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 Plug 'junegunn/vim-peekaboo'
 
 " Code
 Plug 'w0rp/ale' " simple language serving
+
 Plug 'sheerun/vim-polyglot' " a bazillion langs intelligently loaded
+Plug 'tpope/vim-commentary'
 
 Plug 'mattn/emmet-vim' " html/css dynamic snippets
 Plug 'prettier/vim-prettier' " requires nodejs prettier
@@ -73,14 +78,6 @@ Plug 'Townk/vim-autoclose'
 
 " snippets engine, and db
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-Plug 'ap/vim-css-color' " colors all hex/rgb colors
-
-
-
-Plug 'hesselbom/vim-hsftp'
-
-
 
 call plug#end()
 
