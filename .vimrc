@@ -21,9 +21,11 @@ call plug#begin('~/.vim/bundle') " not `~/.vim/plugged`, migration from Vundle
 Plug 'junegunn/vim-plug' " vim-plug manages vim-plug
 Plug 'tpope/vim-sensible' " defaults tpope can agree on
 
-" Visual
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+" Visual "
+""""""""""
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'joshdick/onedark.vim' " theme
@@ -32,7 +34,8 @@ Plug 'joshdick/onedark.vim' " theme
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' } | Plug 'junegunn/limelight.vim'
 
 
-" Environment
+" Environment "
+"""""""""""""""
 Plug 'tpope/vim-tbone' " non-GUI tmux copy/paste
 Plug 'christoomey/vim-tmux-navigator' " split nav consistency
 Plug 'mbbill/undotree'
@@ -48,7 +51,8 @@ Plug 'airblade/vim-rooter' " guess the projects path, for NerdTree
 Plug 'machakann/vim-highlightedyank'
 
 
-" Navigation & Version Control
+" Navigation & Version Control "
+""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'lvht/tagbar-markdown', { 'on': 'TagbarToggle' }
