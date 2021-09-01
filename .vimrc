@@ -89,14 +89,6 @@ call plug#end()
 
 let g:prettier#config#print_width = 180
 
-"let g:fzf_layout = { 'up': '~10%' }
-
-"let g:user_emmet_settings = {
-"\ 'html' : {
-"\     'block_all_childless' : 1
-"\   }
-"\}
-
 let g:airline#extensions#tabline#enabled = 1	" airline config - show buffer 'tabs'
 let g:airline#extensions#tabline#formatter = 'jsformatter'
 let g:airline_powerline_fonts = 0
@@ -106,6 +98,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let NERDTreeShowHidden = 1						" show dotfiles automatically in nerdtree
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 let g:ale_completion_enabled = 1				" ale LSP auto-completion
 
@@ -119,6 +112,8 @@ inoremap <silent><tab> <c-r>=CleverTab#Complete('start')<cr>
 						\<c-r>=CleverTab#Complete('stop')<cr>
 inoremap <silent><s-tab> <c-r>=CleverTab#Complete('prev')<cr>
 
+" let g:mucomplete#enable_auto_at_startup = 1
+
 let g:UltiSnipsExpandTrigger = '<F5>'
 
 let g:tagbar_width = 25							" tagbar confs
@@ -127,8 +122,6 @@ let g:tagbar_compact = 1
 let g:tagbar_sort = 0
 let g:tagbar_singleclick = 1
 
-" run Goyo (distraction-free mode) for markdown
-autocmd VimEnter * if exists(":Goyo") | exe ":Goyo" | endif
 autocmd! User GoyoEnter Limelight
 "autocmd! User GoyoEnter set nocursorline nocursorcolumn
 autocmd! User GoyoLeave Limelight!
@@ -143,7 +136,7 @@ if (has("autocmd") && !has("gui_running"))
 		autocmd!
 		autocmd ColorScheme * call onedark#extend_highlight("CursorLine", { "bg":{ "gui": "#343B47" } })
 		autocmd ColorScheme * call onedark#extend_highlight("CursorColumn", { "bg":{ "gui": "#343B47" } })
-		autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "bg":{ "gui": "#343B47" } })
+		autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", {"bg":{ "gui": "#343B47" },"fg":{"gui": "#E5C07B"} })
 		autocmd ColorScheme * call onedark#extend_highlight("SpellRare", { "fg":{ "gui": "#D165F1" } })
 		autocmd ColorScheme * call onedark#extend_highlight("SpellCap", { "fg":{ "gui": "#E5C07B" } })
 	augroup END
@@ -205,8 +198,8 @@ colorscheme onedark					" theme
 " https://stackoverflow.com/a/12018552/614616
 augroup CursorLine
 	au!
-	au VimEnter,WinEnter,BufWinEnter * if &ft!="markdown" | setlocal cursorline cursorcolumn | endif
-	au WinLeave * setlocal nocursorline nocursorcolumn
+	au VimEnter,WinEnter,BufWinEnter * if &ft!="markdown" | setlocal cursorline | endif
+	au WinLeave * setlocal nocursorline 
 augroup END
 
 
@@ -258,6 +251,14 @@ set foldcolumn=4
 """"""""""""""""""""""""""""""""""""
 
 inoremap jj <ESC>
+" new fzf was overriding with :Windows
+command! W :w
+
+" disable Prettier default <Leader>p
+nmap <Leader>0 <Plug>(Prettier)
+" paste from what was copied/yanked https://superuser.com/questions/321547/
+nnoremap <Leader>y "0y
+nnoremap <Leader>p "0p
 
 " move vertically by visual line
 nnoremap j gj
@@ -277,6 +278,7 @@ vnoremap ty :'<,'>Tyank<CR>
 "noremap <F2> :NERDTreeToggle<CR>
 " toggle nerdtree, showing current file
 nnoremap <silent> <expr> <F2> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+
 noremap <F9> :TagbarToggle<CR>
 
 " unsaved edites diff
@@ -299,29 +301,34 @@ noremap <F8> <Esc>[s1z=
 " nice spelling suggestions
 " modded from source link, wish it didnt remove word
 " https://stackoverflow.com/questions/25777205
-nnoremap <Leader>s [sae<C-X>s
-inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
+" nnoremap <Leader>s [sae<C-X>s
+" inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
 
 " zfz (CtrlP) Fuzzy Search
 " <Leader> is `\` by default
+nnoremap <Leader>r :Rg<CR>
 nnoremap <Leader>b :Buffers<CR>
+
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :GFiles<CR>
+" git status
+nnoremap <Leader>s :GFiles?<CR>
 nnoremap <Leader>l :Lines<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>? :Helptags<CR>
 nnoremap <Leader>u :Snippets<CR> " fzf can show untisnips
 
-" zfz ripgrep (like SublimeText)
+nnoremap <Leader>a :Rg <C-R>=expand("<cword>")<CR><CR>
+
 nmap <Leader><Leader> <Leader>r
-nnoremap <Leader>r :Rg<CR>
-nnoremap <C-p> :Rg<CR>
 
 " buffer (...tab) control
-nnoremap <Tab> :bnext<CR>
+nnoremap <Tab> :Buffers<CR>
 nnoremap <S-Tab> :bprev<CR>
-nnoremap <Leader>dd :bdelete<CR> " close/delete buffer
+
+" close buffer https://stackoverflow.com/a/8585343/614616
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Replace/Substitution i.e. multiple cursors
 " `.` to repeat, `n` to skip.
