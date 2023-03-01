@@ -3,13 +3,13 @@
 
 # What & Whys
 
-I use these `~/dotfile` configs across my cloud and local platforms (with a non-git non-public repo for all the private or per-machine tweaks under `~/.dotfiles_private`).
+I use these `~/dotfile` configs **across** some cloud and local platforms (with a non-git non-public repo for all the private or per-machine tweaks under `~/.dotfiles_private`).
 
 _Keeping to my current distros official repositories as much as possible, unfortunately means no i3-gaps or 'dual kawase blur' from the tryone144 fork of compton._
 
-Local _(on my metal)_ I'm running the **i3** tiling window manager, spiced with a healthy rice of **compton** (fades, transparency) and **rofi** (the dmenu replacement) etc. 
+Local _(on my metal)_ I was running the **i3** tiling window manager, spiced with a healthy rice of **compton** (fades, transparency) and **rofi** (the dmenu replacement) etc. Update 2023-03: Mostly just Cinnamon with Ulauncher.
 
-Cloud _(someone else's metal)_ Where I get most of my development work done via a mosh/SSH tunnel and **tmux**, **zsh**, **vim** etc.
+Cloud _(someone else's metal)_ was where I get most of my development work done via a mosh/SSH tunnel and **tmux**, **zsh**, **vim** etc. Update 2023-03: I mostly use a homelab and graphical VS Code with containers for env setups (Docker).
 
 ## Terminal
 
@@ -17,22 +17,23 @@ After trying many terminal applications locally, I decided to stick with a large
 
 ## Environment (.zsh* & .dircolors)
 
-Using a fairly standard **ZSH** - extended via the popular **oh-my-zsh** (although intend to swap to pathogen inspired antigen soon), and a slightly heavier customised prompt, with welcome display and system-mail setup for cron. 
+Using a fairly standard **ZSH** - extended via the **antigen**), and a slightly heavier customised prompt, with welcome display and system-mail setup for cron.
 
 Dircolors for theming; `ls` file system navigation and NerdTree vim file-structure panel too.
 
+I have a terminal start-up script to check local mail, weather report and some terminal art based on the hostname.
 
-## Terminal Multiplexer (.tmux.conf.local)
+
+### Terminal Multiplexer (.tmux.conf.local)
 
 Built on top of the ambiguously named `.tmux` extension/pre-made-config for `tmux` from '[gpakosz/.tmux](https://github.com/gpakosz/.tmux)' - my config adds some much needed vim/tmux split constancy and theming, full terminal color correction etc.
 
 
-## Editor (.vimrc)
+### Editor (.vimrc)
 
 My vim config is build to replace, and improve-upon my old _Sublime Text 3_ setup.
 
 A tuned but simple web-development focused IDE-like setup. Rocking a modded OneDark syntax highlighting theme, super-spellchecking shortcuts, file-structure sidebar, code-structure sidebar, icons, tmux (and copy/paste) server-side integration, git and a simple language-server interface for all things lint and autocomplete for all programming languages natively installed.
-
 
 ## Version Control (.gitconig)
 
@@ -57,7 +58,7 @@ Some configs will source files from `~/dotfiles/lib` directly, keep this in mind
 
 1. In your home directory `cd ~`, clone this repo with `git clone https://github.com/hozza/dotfiles`.
 2. In the dotfiles dir, make the install.sh executable with `cd ~/dotfiles && chmod u+x ./install.sh`.
-3. While still in the dotfiles dir, run the installer with `./intall.sh`.
+3. While still in the dotfiles dir, run the installer with `./install.sh`.
 
 The small installer will work it's way through the configs, asking which ones would like to symbolically link (install), and it'll even backup any existing configs too.
 
@@ -67,8 +68,6 @@ The small installer will work it's way through the configs, asking which ones wo
 **How do you keep password and confidential or personal information out of a dotfiles repo when sharing it?** 
 
 There are many ways under any unix-like os, like secret-managers and password-managers and somehow trying to get your dotfiles to reference them automatically, there are also some "skin-of-your-teeth" approaches that attempt to strip-out or obfuscate any sensitive info before it is committed to a public repo. 
-
-_All of these sound like a lot of hassle to me._
 
 I simply keep my 'secrets', like login credentials, in a separate non-public non-repo under an environment var location called `$PRIVATES` which live under `~/.dotfiles_private/` - all the configs in shown in this dotfiles repo will source or refer to this location when secrets need to be spilled. You can just keep credentials as plain-text one-use/revocable tokens rather than passwords, and you can even encrypt and decrypt this private location using a file system mechanic at login etc.
 
