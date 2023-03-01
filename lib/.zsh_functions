@@ -24,11 +24,9 @@ hozza_wttr() {
 hozza_welcome() {
 	local welcome="\n\n"
 	welcome+=$(figlet "$HOST" -t)
-	welcome+="\n\n\n"
-	welcome+=$(fortune -e fortunes literature $PRIVATES/quotes)
-	welcome+="\n\n\n"
-	welcome+=$(hozza_wttr "London?2F" | tail -n +8) # tail removes the 8 line tall 'current weather'
-	welcome+="\n\n$USER has $(hozza_check_mail).\n\n"
+	welcome+="\n$USER has $(hozza_check_mail).\n\n"
+	welcome+=$(hozza_wttr "London?0qF")
+	welcome+="\n"
 
 	echo $welcome | sed 's/^/\t/'
 }
