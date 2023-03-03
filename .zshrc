@@ -29,6 +29,7 @@ export MAILPATH=/var/mail/$USER?'$USER has $(hozza_check_mail).'
 # Sources
 source $DOTFILES/lib/.zsh_aliases
 source $DOTFILES/lib/.zsh_functions
+[[ -f $PRIVATES/.zsh_extra ]] && source $PRIVATES/.zsh_extra
 
 # `p10k` prompt theme/extension 
 [[ -f $DOTFILES/lib/.p10k.zsh ]] && source $DOTFILES/lib/.p10k.zsh
