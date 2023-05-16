@@ -1,0 +1,27 @@
+set mouse
+set softwrap
+set atblanks
+set tabsize 4
+set autoindent
+set linenumbers
+set boldtext
+set smarthome
+set whitespace "»⋅"
+set cutfromcursor
+set constantshow
+set zap
+set indicator
+set casesensitive
+
+# Shortcut key bindings
+bind ^C copy main       # CTRC+C = Copy
+bind ^V paste all       # CTRL+V = Paste
+bind ^F whereis all     # CTRL+F = Find
+bind ^S savefile main   # CTRL+S = Save
+bind ^Z undo all        # CTRL+Z = Undo
+bind ^R redo all		# CTRL+R = Redo
+
+
+# syntax highlighting
+include "/usr/share/nano/*.nanorc"
+include "/usr/share/nano/extra/*.nanorc"

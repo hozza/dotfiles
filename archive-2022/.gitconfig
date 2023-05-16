@@ -1,6 +1,15 @@
+#####################################
+# Git Configs by hozza
+# Private info is outside dotfile repo
+#####################################
+
+# a great reminder / tutorial
+# https://medium.com/@s.kang919/my-git-feature-branch-workflow-a4b9647ea459
+
 [core]
-	editor = nano
+	editor = vim
 	whitespace = warn
+	excludesfile = ~/dotfiles/lib/.gitignore_global
 
 # this seeems to be the dotfile convention
 [color]
@@ -66,3 +75,14 @@
 	local = "! git log --oneline --no-merges origin/$(git rev-parse --abbrev-ref HEAD).."
 	# See which commits are on the remote that aren’t on your local branch
 	upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
+
+# store plaintext github personal access token
+[credential]
+	helper = store --file ~/dotfiles_private/.git-credentials
+
+# Privates
+# use separate file for username, etc.
+[include]
+	path = ~/dotfiles_private/.gitconfig.local
+
+# now, go and commit something! :D
