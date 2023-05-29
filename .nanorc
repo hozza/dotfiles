@@ -1,4 +1,13 @@
-set mouse
+###############################
+# Nano Config
+###############################
+
+# https://nano-editor.org/dist/latest/nanorc.5.html
+
+###############################
+# Editor Config
+
+# set mouse # using mouse prevents easy terminal copy
 set softwrap
 set atblanks
 set tabsize 4
@@ -6,14 +15,30 @@ set autoindent
 set linenumbers
 set boldtext
 set smarthome
-set whitespace "»⋅"
+set whitespace "»⋅" # does not seem to work? 2023-05
 set cutfromcursor
 set constantshow
 set zap
 set indicator
 set casesensitive
+set speller "aspell -x -c"
+set historylog
+set positionlog
 
-# Shortcut key bindings
+# To enable and set a working backup directory see https://bash-prompt.net/guides/nanorc-settings/
+unset backup
+
+###############################
+# Colors https://www.linux.org/threads/40658/
+
+set numbercolor italic,lightblack
+set keycolor italic,lightblack
+set functioncolor italic,lightblack
+set selectedcolor bold,white,blue
+
+###############################
+# Shortcut Key-bindings
+
 bind ^C copy main       # CTRC+C = Copy
 bind ^V paste all       # CTRL+V = Paste
 bind ^F whereis all     # CTRL+F = Find
@@ -21,7 +46,8 @@ bind ^S savefile main   # CTRL+S = Save
 bind ^Z undo all        # CTRL+Z = Undo
 bind ^R redo all		# CTRL+R = Redo
 
+###############################
+# Syntax Highlighting Extras
 
-# syntax highlighting
 include "/usr/share/nano/*.nanorc"
 include "/usr/share/nano/extra/*.nanorc"

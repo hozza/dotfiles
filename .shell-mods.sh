@@ -1,0 +1,78 @@
+###############################
+# Shell Mods
+###############################
+
+###############################
+# Custom Prompt
+
+DEFAULT_PROMPT=$PS1
+
+# set default color for prompt
+# to override, set PROMPT_HOST_COLOR before sourcing this file
+# e.g. in ~/.bashrc append `PROMPT_HOST_COLOR="\[\033[38;5;048m\]"`
+# https://unix.stackexchange.com/a/124409
+if [ -z $PROMPT_HOST_COLOR ]; then
+    PROMPT_HOST_COLOR="\[\033[01;32m\]"
+fi
+
+# add the default git prompt script to prompt https://jon.sprig.gs/blog/post/1940
+    # Key:
+    # # = no head
+    # % = untracked file
+    # + = staged changes
+    # * = unstaged changes
+    # $ = stashed changes
+    # = = clean
+    # < = behind
+    # > = ahead
+    # <> = diverged
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM='auto'
+
+# This is the default colorful prompt on Debian/Ubuntu/Mint systems, slightly modified.
+if [[ "$TERM" =~ 256color ]]; then
+    PS1="${debian_chroot:+($debian_chroot)}${PROMPT_HOST_COLOR}\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[38;5;202m\]$(__git_ps1)\[\033[00m\] \[\033[90m\]\$\[\033[00m\] "
+fi
+
+###############################
+# Vars
+
+export PROMPT_COMMAND="history -a" #https://superuser.com/a/602405/79760
+
+# podman is docker
+export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+
+export EDITOR=nano
+
+export NNN_OPTS="dH" # show details and hidden files
+export NNN_FCOLORS='c1e2272e006033f7c6d6abc4' # https://github.com/jarun/nnn/wiki/Usage#configuration
+
+
+###############################
+# Aliases 
+
+# git has its own aliases in gitconfig
+alias g="git"
+
+alias l="ls -lFh --group-directories-first --color=auto"
+alias la="ls -lAFh --group-directories-first --color=auto"
+alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
+alias ls="ls --color=auto"
+
+alias grep='grep --color'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias c="clear"
+alias q="exit"
+
+alias n="nnn"
+
+alias t="tmux"
+alias ta="tmux attach"
+alias tl="tmux ls"
+alias tad="tmux detatch"
