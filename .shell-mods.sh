@@ -33,8 +33,9 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM='auto'
 
 # This is the default colorful prompt on Debian/Ubuntu/Mint systems, slightly modified.
+# https://stackoverflow.com/a/5380073/614616
 if [[ "$TERM" =~ 256color ]]; then
-    PS1="${debian_chroot:+($debian_chroot)}${PROMPT_HOST_COLOR}\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[38;5;202m\]$(__git_ps1)\[\033[00m\] \[\033[90m\]\$\[\033[00m\] "
+    PS1="${debian_chroot:+($debian_chroot)}${PROMPT_HOST_COLOR}\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[38;5;202m\]\$(__git_ps1)\[\033[00m\] \[\033[90m\]\$\[\033[00m\] "
 fi
 
 ###############################
