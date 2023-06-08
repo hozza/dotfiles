@@ -71,6 +71,9 @@
 	# See which commits are on the remote that aren’t on your local branch
 	upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
 
+	# compress large git objects etc.
+	compress = "! git remote prune origin && git repack && git prune-packed && git gc --aggressive"
+
 # Privates
 # use separate file for username, etc.
 [include]
