@@ -78,3 +78,5 @@
 # use separate file for username, etc.
 [include]
 	path = ~/.dotfiles_private/.gitconfig.local
+[pull]
+	rebase = false
