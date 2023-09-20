@@ -49,8 +49,8 @@ fi
 
 export PROMPT_COMMAND="history -a" #https://superuser.com/a/602405/79760
 
-# podman is docker
-export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+# podman (user mode) should act as our docker sock
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 
 export EDITOR=nano
 
