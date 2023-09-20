@@ -11,11 +11,14 @@
 
 *Checkout my older maximalist dot versions in the archive folder. Load of stuff like i3-wm etc. Nowadays, I'm using Linux Mint Cinnamon, VS Code, Gnome Terminal and Tmux.*
 
-# TODO
-
-- make install script for dotfiles
-
 # Install & Usage
+
+1. Clone (or download) this repo.
+2. Symbolic-link each config file you want to your home directory aka `~`. 
+
+```bash
+ln -s ~/Downloads/dotfiles/.shell-mods.sh ~
+``` 
 
 I use these `~/.dotfiles` configs across cloud and local platforms (with a non-git non-public repo for all the private or per-machine tweaks under `~/.dotfiles_private`).
 
