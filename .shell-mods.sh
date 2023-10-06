@@ -57,6 +57,27 @@ export EDITOR=nano
 export NNN_OPTS="dH" # show details and hidden files
 export NNN_FCOLORS='c1e2272e006033f7c6d6abc4' # https://github.com/jarun/nnn/wiki/Usage#configuration
 
+# make nnn cd on exit: https://github.com/jarun/nnn/wiki/Basic-use-cases#configure-cd-on-quit
+# https://github.com/jarun/nnn/blob/master/misc/quitcd/quitcd.bash_sh_zsh
+n ()
+{
+    # Block nesting of nnn in subshells
+    [ "${NNNLVL:-0}" -eq 0 ] || {
+        echo "nnn is already running"
+        return
+    }
+
+    # force always cd on exit by exporting here
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    command nnn "$@"
+
+    [ ! -f "$NNN_TMPFILE" ] || {
+        . "$NNN_TMPFILE"
+        rm -f "$NNN_TMPFILE" > /dev/null
+    }
+}
+
 
 ###############################
 # Aliases 
@@ -76,8 +97,6 @@ alias mv='mv -i'
 
 alias c="clear"
 alias q="exit"
-
-alias n="nnn"
 
 alias t="tmux"
 alias ta="tmux attach"
