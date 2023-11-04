@@ -74,9 +74,14 @@
 	# compress large git objects etc.
 	compress = "! git remote prune origin && git repack && git prune-packed && git gc --aggressive"
 
+# new conventions
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
 # Privates
 # use separate file for username, etc.
 [include]
 	path = ~/.dotfiles_private/.gitconfig.local
-[pull]
-	rebase = false
