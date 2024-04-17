@@ -49,9 +49,6 @@ fi
 
 export PROMPT_COMMAND="history -a" #https://superuser.com/a/602405/79760
 
-# podman (user mode) should act as our docker sock
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
-
 export EDITOR=nano
 
 export NNN_OPTS="dH" # show details and hidden files
