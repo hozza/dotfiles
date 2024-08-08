@@ -16,16 +16,19 @@
 1. Clone (or download) this repo.
 2. Symbolic-link each config file you want to your home directory aka `~`. 
 
+e.g.
 ```bash
 ln -s ~/Downloads/dotfiles/.shell-mods.sh ~
 ``` 
 
-I use these `~/.dotfiles` configs across cloud and local platforms (with a non-git non-public repo for all the private or per-machine tweaks under `~/.dotfiles_private`).
+I use these `~/dotfiles` configs across cloud and local platforms (with a non-git non-public repo for all the private or per-machine tweaks under `~/.dotfiles_private`).
 
-This `~/.dotfiles` repo is structured like a mirror of your $HOME directory, but only with config files.
+This `~/dotfiles` repo is structured like a mirror of your $HOME directory, but only with config files.
 
 	i.e. Files directly in the repo can by copied/symbolic-linked directly to your home directory, and files within sub-directories in the repo should be within those subdirectories under your home dir too. 
 
 	e.g. `dotfiles/.myConf` goes in `~/.myConf` and `dotfiles/.config/myOtherConf` goes in `~/.config/myOtherConf`.
 
-Just add `source ~/.shell-mods.sh` into your shellrc e.g. `~/.bashrc` or `~/.zshrc`. If you want to change the prompt user@hostname color add `PROMPT_HOST_COLOR="\[\033[38;5;048m\]"` before you source the shell-mods.sh file and change the "048" to [whatever color you like](https://unix.stackexchange.com/a/124409).
+Once you've symbolic-linked your chosen dotfiles such as shell-mods, you can then add `source ~/.shell-mods.sh` into your shellrc e.g. `~/.bashrc` or `~/.zshrc`. 
+
+If you want to change the prompt (user@hostname) color add `PROMPT_HOST_COLOR="\[\033[38;5;048m\]"` before you source the shell-mods.sh file and change the "048" to [whatever color you like](https://unix.stackexchange.com/a/124409).
