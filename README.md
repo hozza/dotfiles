@@ -1,3 +1,8 @@
+> [!WARNING]
+> As any good internet citizen should, **this repo has been migrated to Codeberg**.
+> 
+> https://codeberg.org/teatowel/dotfiles
+
 # dotfiles
 
 ☔️ __Here be Dragons...__ and a simplified version of my most used dots.
